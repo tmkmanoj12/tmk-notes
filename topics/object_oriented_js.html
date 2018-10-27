@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <script src="index.js"></script>
+    <script src="./object_oriented_js.js"></script>
 </head>
 
 <body>
@@ -33,12 +33,41 @@
 
         </div>
         <div class="row">
-            <p>
-                Object Literal syntax is not a good way to define an object if there is atleast one method in it
-                <code>let name = "manoj"</code>
-            </p>
+            <ul>
+                <li>
+                    <p>
+                        Object Literal syntax is not a good way to define an object if there is atleast one method in
+                        it
+                        <p>
+                            <pre>
+                                <code class="javascript">
+                                    const person1 = {
+                                        name : 'manoj',
+                                        printName : function() {
+                                            return name
+                                        }
+                                    }
+        
+                                    const person2 = {
+                                        name : 'kumar',
+                                        printName : function() {
+                                            return name
+                                        }
+                                    }
+                                    </code>
+                            </pre>
+                        </p>
+                        <p>
+                            So if there is a bug in method we have to fix in mulitple places
+                            Imagine if there are 100 methods in each object and 100 objects.
+                            it would be tedious
+                        </p>
+                    </p>
+                </li>
+            </ul>
+
         </div>
     </div>
 </body>
 
-</html> 
+</html>
