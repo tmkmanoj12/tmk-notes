@@ -36,37 +36,230 @@
             <ul>
                 <li>
                     <p>
-                        Object Literal syntax is not a good way to define an object if there is atleast one method in
-                        it
-                        <p>
-                            <pre>
-                                <code class="javascript">
-                                    const person1 = {
-                                        name : 'manoj',
-                                        printName : function() {
-                                            return name
-                                        }
-                                    }
+                        <span>
+                            Object Literal syntax is not a good way to define an object if there is atleast one method
+                            in it
+                        </span>
+
+                        <div class="col-xs-4">
+                            <p>
+                                <pre>
+<code class="javascript">
+        const person1 = {
+            name : 'manoj',
+            printName : function() {
+                console.log(name)
+            }
+        }
+
         
-                                    
-                                    const person2 = {
-                                        name : 'kumar',
-                                        printName : function() {
-                                            return name
-                                        }
-                                    }
-                                    </code>
-                            </pre>
-                        </p>
-                        <p>
-                            So if there is a bug in method we have to fix in mulitple places
-                            Imagine if there are 100 methods in each object and 100 objects.
-                            it would be tedious
-                        </p>
+        const person2 = {
+            name : 'kumar',
+            printName : function() {
+                console.log(name)
+            }
+        }
+        </code>
+</pre>
+                            </p>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <p>
+                                <strong>Notes on Constructor :</strong>
+                            </p>
+                            <p>
+                                <ul>
+                                    <li>
+                                        Every object has a <code>constructor</code> property and that refers
+                                        to the function that is used to create that object
+                                    </li>
+                                    <li>
+                                        When we use <code>let obj = {}</code> object literal syntax
+                                        internally <code>let obj = new Object()</code> happens
+                                    </li>
+                                    <li>
+                                        we have some eg like that we always use literals for some types for eg strings
+                                    </li>
+                                    <li>
+                                        They can also be created as(Built in constructors)
+                                        <ul>
+                                            <li>
+                                                <code> let name = new String('manoj')</code>
+                                            </li>
+                                            <li>
+                                                <code> let name = new Boolean()</code>
+                                            </li>
+                                            <li>
+                                                <code> let name = new Number(10)</code>
+                                            </li>
+                                            <li>
+                                                If you print constructor for an object created with fatctory pattern it
+                                                will show the function used to create
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="col-xs-8">
+                            <p>
+                                So if there is a bug in method we have to fix in mulitple places
+                                Imagine if there are 100 methods in each object and 100 objects.
+                                it would be tedious
+                            </p>
+                            <p>
+                                If an object has more than one method then it is said to have a behaviour
+                                like car object
+                            </p>
+                            <p>
+                                So creating objects with object literal is good if that object has no behaviour
+                            </p>
+                            <p><strong>So what is the solution ?</strong></p>
+                            <p><strong>Solution :</strong> To Use Factory or a constructor function</p>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <p><strong>Factory Function</strong></p>
+                                    <pre>
+<code class="javascript">
+    function createPerson (name) {
+        return  {
+            name : name, 
+            printName : function(){
+                console.log(name)
+            }
+
+        }
+    }
+
+    const obj = createPerson("manoj")
+    manoj.printName()
+</code>
+</pre>
+                                    <strong>Note :</strong> <span> if object and key name is same in es6 we can remove
+                                        nosie
+                                        code so in that case
+                                        {name,printName : func}</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p> <strong>Constructor Function</strong> </p>
+                                    <pre>
+<code class="javascript">
+    function Person(name) {
+        console.log("this", this)//empty obj 
+        this.name = name,
+        this.printName = function () {
+            console.log(name)
+        }
+    }
+
+    const obj = new Person('manoj')
+    </code>
+</pre>
+                                    <strong>Note : </strong>
+                                    <ul>
+                                        <li>
+                                            we dont have to return <code>this</code>.
+                                            it will happen automatically when we use <code>new</code>
+                                        </li>
+                                        <li>
+                                            <code>this</code> is a reference to a object that is executing the current
+                                            piece of code
+                                        </li>
+                                        <li>
+                                            By default <code>this</code> points to global object , if you are running
+                                            that piece of code in browser then <code>this</code> points to window
+                                            object
+                                            if we are running in node environment then <code>this</code> will refer to
+                                            global
+                                        </li>
+                                        <li>
+                                            when you call a <code>new</code> operator some things happen under the hood
+                                            that is create an
+                                            empty object and will set <code>this</code> to point to that variable which
+                                            called <code>new</code> operator
+                                        </li>
+                                        <li>If we call constructor function without <code>new</code>
+                                            then if we print <code>this</code> it will show windowobject
+                                        </li>
+                                        <li>Instead of accidentally changing global properties and breaking the <code>this</code>
+                                            will be pointing to empty object
+                                            when <code>new</code> is called</li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p> <strong>So which is Better ?</strong> </p>
+                                <p>Both does the same thing , creating an object , but its upto developer</p>
+                            </div>
+                        </div>
                     </p>
                 </li>
             </ul>
 
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-4">
+                <p>
+                    <ul>
+                        <li>
+                            One of the cofusing concepts in js is functions are objects
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="col-xs-4">
+                <pre>
+    <code>
+    function Person(name) {
+        console.log("this", this)//empty obj 
+        this.name = name,
+        this.printName = function () {
+            console.log(name)
+        }
+    }
+    </code>
+    this is actually an object
+</pre>
+    <p>
+        <ul>
+            <li>
+                So when we do a <code>.</code> on function name like <code>Person.(suggestions)</code>
+                we will get all the properties and methods which we get on an object
+            </li>
+        </ul>
+    </p>
+            </div>
+            <div class="col-xs-4">
+                <pre>
+<code>
+function Person(name) {
+    console.log("this", this)//empty obj 
+    this.name = name,
+    this.printName = function () {
+        console.log(name)
+    }
+}
+</code>
+</pre>
+<p>
+    <ul>
+        <li>
+            So we can will analyse how left function works
+        </li>
+    </ul>
+</p>
+            </div>
         </div>
     </div>
 </body>
