@@ -14,11 +14,11 @@
 
 <!-- Italics -->
 
-_This text_ is italics | _This text_ is italics
+_This text_ is italics | *This text* is italics
 
 <!-- Bold -->
 
-**This text** is bold | **This text** is bold
+**This text** is bold | __This text__ is bold
 
 <!-- Strike through -->
 
