@@ -1,3 +1,10 @@
 # tmk-notes
-This is notes for different topics
-clone and do npm i and then npm start and keep on adding topics
+>This is notes for different topics
+
+### Clone and do 
+
+```bash
+ npm i
+ npm start 
+```
+__ Keep adding Topics __
